@@ -1,6 +1,20 @@
+
 <h1><%= @brew.name %></h1>
-  	<p>  <%= @brew.story %></p>
+  	<p><%= @brew.story %></p>
    	<p><%= @brew.walkthrough %></p>
-		<% @brew.hops.each do |hop| %>
+		
+<% @brew.fermentables.each do |fermentable| %>
+  	<p><%=fermentable.name %></p>
+<% end %>
+
+<% @brew.hops.each do |hop| %>
   	<p><%=hop.name %></p>
+<% end %>
+
+<% @brew.yeasts.each do |yeasts| %>
+  	<p><%=yeasts.name %></p>
+<% end %>
+
+<% @brew.extras.each do |extras| %>
+  	<p><%=extras.name %></p>
 <% end %>

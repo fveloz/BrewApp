@@ -6,6 +6,9 @@ class BrewsController < ApplicationController
   def new
   	@brew = Brew.new
   	@brew.hops.build
+    @brew.fermentables.build
+    @brew.yeasts.build
+    @brew.extras.build
   end
 
   def show
@@ -28,7 +31,9 @@ class BrewsController < ApplicationController
 
 private 
   def brew_params
-  	params.require('brew').permit(:name, :story, :walkthrough, hops_attributes: [:name, :id, :brew_id])
+  	params.require('brew').permit(:name, :story, :walkthrough, hops_attributes: [:name, :id, :brew_id], 
+      extras_attributes: [:name, :id, :brew_id], fermentables_attributes: [:name, :id, :brew_id], 
+      yeasts_attributes: [:name, :id, :brew_id])
   end
 
 
