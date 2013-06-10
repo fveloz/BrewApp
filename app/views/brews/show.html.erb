@@ -1,0 +1,6 @@
+<h1><%= @brew.name %></h1>
+  	<p>  <%= @brew.story %></p>
+   	<p><%= @brew.walkthrough %></p>
+		<% @brew.hops.each do |hop| %>
+  	<p><%=hop.name %></p>
+<% end %>
