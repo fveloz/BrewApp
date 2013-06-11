@@ -15,6 +15,10 @@ class BrewsController < ApplicationController
   	@brew = Brew.find params[:id]
   end
 
+  def edit
+    @brew = Brew.find params[:id]
+  end
+
   def create
   	@brew = Brew.new(brew_params)
    	if @brew.save
@@ -22,11 +26,13 @@ class BrewsController < ApplicationController
    	else
    		'new'
    	end
- 
   end
 
-
-
+ def update
+  @brew = Brew.find params[:id]
+  @brew.update brew_params
+  redirect_to @brew
+ end
 
 
 private 

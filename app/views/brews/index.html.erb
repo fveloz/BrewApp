@@ -1,2 +1,24 @@
-<h1>Brews#index</h1>
-<p>Find me in app/views/brews/index.html.erb</p>
+
+<% @brews.each do |brew| %>
+		<h1><%= brew.name %></h1>
+	  	<p><%= brew.story %></p>
+	   	<p><%= brew.walkthrough %></p>
+				
+				<% brew.fermentables.each do |fermentable| %>
+				  	<p><%=fermentable.name %></p>
+				<% end %>
+
+				<% brew.hops.each do |hop| %>
+				  	<p><%=hop.name %></p>
+				<% end %>
+
+				<% brew.yeasts.each do |yeasts| %>
+				  	<p><%=yeasts.name %></p>
+				<% end %>
+
+				<% brew.extras.each do |extras| %>
+				  	<p><%=extras.name %></p>
+				<% end %>
+
+				<%= link_to "Show", brew %>
+<% end %>
