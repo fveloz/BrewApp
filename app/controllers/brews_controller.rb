@@ -21,6 +21,7 @@ class BrewsController < ApplicationController
 
   def create
   	@brew = Brew.new(brew_params)
+    @brew.user = User.find(current_user.id)
    	if @brew.save
    		redirect_to @brew
    	else
