@@ -1,0 +1,40 @@
+
+<%= form_for @brew do |f| %>
+	<p><%= f.label :name, "Brew" %> <br />
+		<%= f.text_field :name %><br />
+		<%= f.label :story, "Brew's story" %><br />
+		<%= f.text_field :story %><br />
+		<%= f.label :walkthrough, "Recipe Walkthrough" %><br />
+		<%= f.text_field :walkthrough %><br />
+	</p>
+
+			<%= f.fields_for :fermentables do |fermentables| %>
+				<%= render 'fermentables', f: fermentables %>
+			<% end %>
+			
+			
+			<%= f.fields_for :hops do |hops| %>
+				<%= render 'hops', f: hops %>
+			<% end %>
+		
+
+
+			<%= f.fields_for :yeasts do |yeasts| %>
+				<%= render 'yeasts', f: yeasts %>
+			<% end %>
+		
+
+			<%= f.fields_for :extras do |extras| %>
+				<%= render 'extras', f: extras %>
+			<% end %>
+	
+
+	<p>
+		<%= f.submit %> 
+	</p>
+
+
+
+
+
+<% end %>
