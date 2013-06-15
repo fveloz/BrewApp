@@ -2,22 +2,22 @@
 <h1><%= @brew.name %></h1>
   	<p><%= @brew.story %></p>
    	<p><%= @brew.walkthrough %></p>
-		
+<fieldset>		
 <% @brew.fermentables.each do |fermentable| %>
-  	<p><%=fermentable.name %></p>
+  	<p><%=fermentable.name.capitalize %> |
 <% end %>
 
 <% @brew.hops.each do |hop| %>
-  	<p><%=hop.name %></p>
+  	<%=hop.name.capitalize %> |
 <% end %>
 
 <% @brew.yeasts.each do |yeasts| %>
-  	<p><%=yeasts.name %></p>
+  	<%=yeasts.name.capitalize %> |
 <% end %>
 
 <% @brew.extras.each do |extras| %>
-  	<p><%=extras.name %></p>
+  	<%=extras.name.capitalize %></p>
 <% end %>
-
+</fieldset>
 <%= link_to "Edit", edit_brew_path %>
 <%= link_to 'Home', root_path %>
